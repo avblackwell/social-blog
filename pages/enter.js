@@ -1,5 +1,6 @@
 import { auth, firestore, googleAuthProvider } from '../lib/firebase';
 import { UserContext } from '../lib/context';
+import Metatags from '../components/Metatags';
 
 import { useEffect, useState, useCallback, useContext } from 'react';
 import debounce from 'lodash.debounce';
@@ -12,7 +13,7 @@ export default function Enter(props) {
   // 3. user signed in, has username <SignOutButton />
   return (
     <main>
-      
+      <Metatags title="Enter" description="Sign up for this amazing app!" />
       {user ? !username ? <UsernameForm /> : <SignOutButton /> : <SignInButton />}
     </main>
   );
@@ -25,9 +26,11 @@ function SignInButton() {
   };
 
   return (
+    <>
       <button className="btn-google" onClick={signInWithGoogle}>
         <img src={'/google.png'} width="30px" /> Sign in with Google
       </button>
+    </>
   );
 }
 
@@ -110,14 +113,7 @@ function UsernameForm() {
             Choose
           </button>
 
-          <h3>Debug State</h3>
-          <div>
-            Username: {formValue}
-            <br />
-            Loading: {loading.toString()}
-            <br />
-            Username Valid: {isValid.toString()}
-          </div>
+          
         </form>
       </section>
     )
