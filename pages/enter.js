@@ -1,7 +1,6 @@
 import { auth, firestore, googleAuthProvider } from '../lib/firebase';
 import { UserContext } from '../lib/context';
 import Metatags from '../components/Metatags';
-import Image from 'next/image';
 import { useEffect, useState, useCallback, useContext } from 'react';
 import debounce from 'lodash.debounce';
 
@@ -28,7 +27,7 @@ function SignInButton() {
   return (
     <>
       <button className="btn-google" onClick={signInWithGoogle}>
-        <Image src={'/google.png'} width="30px"> Sign in with Google</Image>
+        <img src={'/google.png'} width="30px" /> Sign in with Google
       </button>
     </>
   );
